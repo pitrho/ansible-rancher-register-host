@@ -1,0 +1,5 @@
+---
+# file: roles/rancher-agent/tasks/main.yaml
+
+- include: rancher-agent.yaml
+  tags: rancher-agent

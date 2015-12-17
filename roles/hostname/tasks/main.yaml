@@ -1,0 +1,5 @@
+---
+# file: roles/hostname/tasks/main.yaml
+
+- include: hostname.yaml
+  tags: hostname

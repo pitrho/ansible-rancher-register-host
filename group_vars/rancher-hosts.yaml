@@ -1,0 +1,7 @@
+RANCHER_API_KEY: KEEPMESECRET
+RANCHER_SECRET_KEY: DONTCOMMITTHIS!
+
+rancher_server: rancher.myhost.com
+rancher_port: 80
+
+ubuntu_version: trusty

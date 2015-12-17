@@ -1,0 +1,9 @@
+---
+# This playbook defines the roles (and thereby tasks) applied
+# for provisioning a new Rancher-registered host.
+
+- hosts: all
+  roles:
+    - hostname
+    - docker
+    - rancher-agent

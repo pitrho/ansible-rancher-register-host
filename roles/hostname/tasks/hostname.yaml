@@ -1,0 +1,7 @@
+- name: Set the hostname
+  shell: hostname {{ inventory_hostname_short | replace("_", "-") }} && echo {{ inventory_hostname_short | replace("_", "-") }} >/etc/hostname
+  tags: hostname
+
+- name: Set the hosts file
+  template: src=hosts.j2 dest=/etc/hosts
+    owner=root group=root mode=0644 backup=yes

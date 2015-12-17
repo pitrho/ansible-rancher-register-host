@@ -1,0 +1,5 @@
+---
+# file: roles/docker/tasks/main.yaml
+
+- include: docker.yaml
+  tags: docker

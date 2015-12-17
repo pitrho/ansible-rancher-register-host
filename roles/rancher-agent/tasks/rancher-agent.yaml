@@ -1,0 +1,25 @@
+---
+- name: Install httplib2
+  apt:
+      name=python-httplib2
+      update_cache=yes
+
+- name: Check if the rancher-agent is running
+  command: docker ps -a
+  register: containers
+
+- name: Return the registration token URL of Rancher server
+  action: uri
+      method=GET
+      user="{{RANCHER_API_KEY}}"
+      password="{{RANCHER_SECRET_KEY}}"
+      force_basic_auth=yes
+      status_code=200
+      url="http://{{ rancher_server }}:{{ rancher_port }}/v1/projects/{{project_id}}/registrationtokens" return_content=yes
+      validate_certs=no
+  register: rancher_token_url
+  when: "'rancher-agent' not in containers.stdout"
+
+- name: Register the Host machine with the Rancher server
+  shell: "{{ rancher_token_url.json['data'][0]['command'] }}"
+  when: "'rancher-agent' not in containers.stdout"
