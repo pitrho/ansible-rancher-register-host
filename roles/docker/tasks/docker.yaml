@@ -6,4 +6,4 @@
   apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-{{ubuntu_version}} main' state=present update_cache=yes
 
 - name: Install Docker
-  apt: pkg=docker-engine=1.9.0-0~{{ubuntu_version}} state=present force=yes
+  apt: pkg=docker-engine=1.9.1-0~{{ubuntu_version}} state=present force=yes
